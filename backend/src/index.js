@@ -14,11 +14,16 @@ import path from "path";
 app.use(express.json({ limit: '10mb' })); //to extract the data from body in json format
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
-app.use(cors({
-    origin:"http://localhost:5173",
-    credentials:true,
-    
-}))
+const allowedOrigins = [
+    "http://localhost:5173", // dev
+    "https://your-vercel-project-name.vercel.app" // production
+  ];
+  
+  app.use(cors({
+    origin: allowedOrigins,
+    credentials: true,
+  }));
+  
 const __dirname = path.resolve();
 // app.use((req, res, next) => {
 //     console.log(`Incoming Request: ${req.method} ${req.url}`); // Debugging
