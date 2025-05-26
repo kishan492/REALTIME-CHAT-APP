@@ -16,7 +16,7 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cookieParser());
 const allowedOrigins = [
     "http://localhost:5173", // dev
-    "https://your-vercel-project-name.vercel.app" // production
+    "https://realtime-chat-app-gamma-peach.vercel.app" // production
   ];
   
   app.use(cors({
